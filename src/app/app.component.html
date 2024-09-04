@@ -49,6 +49,7 @@
             name="secret"
             required
             #secret="ngModel"
+            [ngModel]="defaultSecret"
           >
             <option value="pet">Your first Pet?</option>
             <option value="teacher">Your first teacher?</option>
@@ -56,6 +57,17 @@
           <span *ngIf="secret.invalid && secret.touched" class="help-block"
             >Please select a secret question</span
           >
+        </div>
+        <div class="form-group">
+          <label for="secret">Answer</label>
+          <textarea
+            class="form-control"
+            name="answer"
+            id="answer"
+            rows="3"
+            [(ngModel)]="answer"
+          ></textarea>
+          <span>your reply is :{{ answer }}</span>
         </div>
         <button [disabled]="!f.valid" class="btn btn-primary" type="submit">
           Submit
